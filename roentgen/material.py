@@ -151,7 +151,12 @@ class Compound(object):
 
 class MassAttenuationCoefficient(object):
     """
+    The mass attenuation coefficient
 
+    Parameters
+    ----------
+    material : str
+        A string representing a material (e.g. cdte, be, mylar, si)
     """
     def __init__(self, material):
         # find the material in our list
