@@ -1,5 +1,0 @@
-rontgen
-=======
-
-.. automodule:: rontgen
-    :members:

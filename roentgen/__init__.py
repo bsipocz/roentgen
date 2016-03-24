@@ -14,3 +14,5 @@ from ._astropy_init import *
 if not _ASTROPY_SETUP_:
     import os
     import json
+
+from roentgen.material import *

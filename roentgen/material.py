@@ -4,19 +4,15 @@
 from __future__ import absolute_import
 
 import numpy as np
-
 import os
-
 import astropy.units as u
 from scipy import interpolate
-import rontgen
+import roentgen
 
 __all__ = ['Material', 'MassAttenuationCoefficient', 'Compound']
 
-_package_directory = os.path.dirname(os.path.abspath(__file__))
-_data_directory = os.path.abspath(os.path.join(_package_directory, 'data'))
-#_filename = 'mass_attenuation_coefficient.hdf5'
-#_data_file = os.path.join(_data_directory, _filename)
+#_package_directory = os.path.dirname(os.path.abspath(__file__))
+#_data_directory = os.path.abspath(os.path.join(_package_directory, 'data'))
 
 
 class Material(object):
@@ -33,7 +29,7 @@ class Material(object):
 
     Examples
     --------
-    >>> from rontgen.material import Material
+    >>> from roentgen.material import Material
     >>> import astropy.units as u
     >>> detector = Material('cdte', 500 * u.um)
     >>> thermal_blankets = Material('mylar', 0.5 * u.mm)
@@ -45,7 +41,7 @@ class Material(object):
         self.mass_attenuation_coefficient = MassAttenuationCoefficient(material_str)
         self.long_name = self.mass_attenuation_coefficient.long_name
         if density is None:
-            mat = rontgen.material_list[material_str.lower()]
+            mat = roentgen.material_list[material_str.lower()]
             try:
                 self.density = u.Quantity(mat['density']['value'], mat['density']['unit'])
             except:
@@ -100,7 +96,7 @@ class Compound(object):
 
     Examples
     --------
-    >>> from rontgen.material import Material
+    >>> from roentgen.material import Material
     >>> import astropy.units as u
     >>> detector = Material('cdte', 500 * u.um)
     >>> thermal_blankets = Material('mylar', 0.5 * u.mm)
@@ -160,7 +156,7 @@ class MassAttenuationCoefficient(object):
     """
     def __init__(self, material):
         # find the material in our list
-        mat = rontgen.material_list[material.lower()]
+        mat = roentgen.material_list[material.lower()]
         self.name = mat['symbol']
         self.long_name = mat['name']
         datafile_path = os.path.join(_data_directory, mat['file'])
@@ -175,4 +171,4 @@ class MassAttenuationCoefficient(object):
 
 
 def _get_long_name(material):
-    return rontgen.material_list.get(material)['name']
+    return roentgen.material_list.get(material)['name']
