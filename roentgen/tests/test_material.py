@@ -1,10 +1,10 @@
 import pytest
-from rontgen.material import MassAttenuationCoefficient
-import rontgen
+from roentgen.material import MassAttenuationCoefficient
+import roentgen
 import numpy as np
 import astropy.units as u
 
-@pytest.fixture(params=rontgen.material_list.keys())
+@pytest.fixture(params=roentgen.material_list.keys())
 def mass_atten(request):
     return MassAttenuationCoefficient(request.param)
 
