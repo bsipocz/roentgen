@@ -11,8 +11,8 @@ import roentgen
 
 __all__ = ['Material', 'MassAttenuationCoefficient', 'Compound']
 
-#_package_directory = os.path.dirname(os.path.abspath(__file__))
-#_data_directory = os.path.abspath(os.path.join(_package_directory, 'data'))
+_package_directory = roentgen._package_directory
+_data_directory = roentgen._data_directory
 
 
 class Material(object):
@@ -87,7 +87,8 @@ class Material(object):
 
 
 class Compound(object):
-    """An object which provides the properties of a material in x-rays
+    """An object which provides the properties of a compound (i.e.
+     many materials) in x-rays.
 
     Parameters
     ----------
