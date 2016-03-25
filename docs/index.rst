@@ -3,9 +3,16 @@ Contents
 ========
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
 
-   reference/index
+    readme
+    guide/index
+    reference/index
+    examples/index
+    contributing
+    authors
+    license
+    changelog
 
 
 Indices and tables
