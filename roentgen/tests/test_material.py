@@ -28,6 +28,15 @@ def material(request):
     return Material(request.param, 500 * u.micron)
 
 
+@pytest.fixture(params=roentgen.material_list.keys())
+def material_dict(request):
+    return roentgen.material_list[request.param]
+
+
+def test_has_default_density(material_dict):
+    # test if materials have a default density provided
+    assert material_dict.get('density', 'None') != None
+
 def test_material(material):
     assert isinstance(material, Material)
 
