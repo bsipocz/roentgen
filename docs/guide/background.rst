@@ -73,4 +73,3 @@ Reference
 ---------
 
 * `Mass attenuation coefficient Wikipedia <https://en.wikipedia.org/wiki/Mass_attenuation_coefficient>`_
-*

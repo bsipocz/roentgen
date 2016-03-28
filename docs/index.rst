@@ -5,7 +5,6 @@ Contents
 .. toctree::
     :maxdepth: 1
 
-    readme
     guide/index
     reference/index
     examples/index
