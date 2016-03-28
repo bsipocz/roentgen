@@ -8,6 +8,7 @@ import os
 import astropy.units as u
 from scipy import interpolate
 import roentgen
+import warnings
 
 __all__ = ['Material', 'MassAttenuationCoefficient', 'Compound']
 
@@ -45,7 +46,8 @@ class Material(object):
             try:
                 self.density = u.Quantity(mat['density']['value'], mat['density']['unit'])
             except:
-                raise ValueError("Default density not available.")
+                warnings.warn("Default density not available. Assuming " + str(u.Quantity(1, 'g/cm^3')))
+                self.density = u.Quantity(1, 'g/cm^3')
         else:
             self.density = density
 
